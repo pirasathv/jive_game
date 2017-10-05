@@ -9,7 +9,7 @@ import org.junit.runners.Suite;
  * @author Guilherme
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ PokerGameTest.class, })
+@Suite.SuiteClasses({ SimpleDeckServiceTest.class, })
 public class ServiceGameTestSuite {
 
 }
