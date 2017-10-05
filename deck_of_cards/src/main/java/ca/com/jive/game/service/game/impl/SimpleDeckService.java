@@ -6,6 +6,8 @@ import java.util.NoSuchElementException;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.springframework.stereotype.Service;
+
 import ca.com.jive.game.domain.IDeck;
 import ca.com.jive.game.domain.SimpleDeck;
 import ca.com.jive.game.domain.SuitCard;
@@ -20,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
  * @param <D> The deck type to use on the game 
  */
 @Slf4j
+@Service
 public class SimpleDeckService implements IDeckService<SuitCard> {
 
 	/** Number of operations to swap the cards */
