@@ -1,9 +1,9 @@
 package ca.com.jive.game.domain;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import ca.com.jive.game.domain.enums.SuitCardType;
-import junit.framework.Assert;
 import lombok.val;
 
 /**

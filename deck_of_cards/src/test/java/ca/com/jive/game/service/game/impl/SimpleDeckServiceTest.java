@@ -3,6 +3,7 @@ package ca.com.jive.game.service.game.impl;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ca.com.jive.game.service.impl.SimpleDeckService;
 import lombok.val;
 
 public class SimpleDeckServiceTest {
@@ -12,11 +13,11 @@ public class SimpleDeckServiceTest {
 		val service = new SimpleDeckService();
 		val deckId = service.newDeck();
 
-		Assert.assertEquals(48, service.getDeck(deckId).getTotalCards());
+		Assert.assertEquals(52, service.getDeck(deckId).getTotalCards());
 		service.dealOneCard(deckId);
-		Assert.assertEquals(47, service.getDeck(deckId).getTotalCards());
+		Assert.assertEquals(51, service.getDeck(deckId).getTotalCards());
 		service.dealOneCard(deckId);
-		Assert.assertEquals(46, service.getDeck(deckId).getTotalCards());
+		Assert.assertEquals(50, service.getDeck(deckId).getTotalCards());
 	}
 	
 	@Test
@@ -25,10 +26,10 @@ public class SimpleDeckServiceTest {
 		val deckId = service.newDeck();
 		
 		val previousCards = service.getDeck(deckId).getCards();
-		Assert.assertEquals(48, service.getDeck(deckId).getTotalCards());
+		Assert.assertEquals(52, service.getDeck(deckId).getTotalCards());
 		service.shuffle(deckId);
 		val shuffledCards = service.getDeck(deckId).getCards();
-		Assert.assertEquals(48, service.getDeck(deckId).getTotalCards());
+		Assert.assertEquals(52, service.getDeck(deckId).getTotalCards());
 		Assert.assertFalse("Deck was not shuffled", previousCards.equals(shuffledCards));
 	}
 	

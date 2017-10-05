@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import ca.com.jive.game.controller.SpringControllerScan;
-import ca.com.jive.game.service.game.SpringServiceScan;
+import ca.com.jive.game.service.SpringServiceScan;
 
 /**
  * Configs of SpringBoot Starter and packages to scan

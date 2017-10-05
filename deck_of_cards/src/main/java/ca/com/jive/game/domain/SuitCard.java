@@ -42,10 +42,10 @@ public final class SuitCard implements ICard {
 
 		val suitCard = (SuitCard) o;
 		if (suitCard.getSuit().equals(this.suit)) {
-			return Integer.compare(o.getNumber(), this.number);
+			return Integer.compare(this.number, o.getNumber());
 		}
 
-		return suitCard.getSuit().compareTo(this.suit);
+		return this.suit.compareTo(suitCard.getSuit());
 	}
 
 	/**

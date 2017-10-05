@@ -1,4 +1,4 @@
-package ca.com.jive.game.service.game;
+package ca.com.jive.game.service;
 
 import ca.com.jive.game.domain.ICard;
 import ca.com.jive.game.domain.IDeck;

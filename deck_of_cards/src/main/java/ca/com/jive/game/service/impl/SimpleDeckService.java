@@ -1,4 +1,4 @@
-package ca.com.jive.game.service.game.impl;
+package ca.com.jive.game.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import ca.com.jive.game.domain.IDeck;
 import ca.com.jive.game.domain.SimpleDeck;
 import ca.com.jive.game.domain.SuitCard;
-import ca.com.jive.game.service.game.IDeckService;
+import ca.com.jive.game.service.IDeckService;
 import lombok.val;
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,12 +26,11 @@ import lombok.extern.slf4j.Slf4j;
 public class SimpleDeckService implements IDeckService<SuitCard> {
 
 	/** Number of operations to swap the cards */
-	private static final int TIMES_TO_SHUFFLE = 1000;
+	private static final int TIMES_TO_SHUFFLE = 100000;
 	public Map<String, SimpleDeck> decksStared = new HashMap<String, SimpleDeck>();
 
 	public String newDeck() {
 		val newDeck = new SimpleDeck();
-		this.shuffle(newDeck);
 
 		String deckId = UUID.randomUUID().toString();
 		this.decksStared.put(deckId, newDeck);
@@ -53,9 +52,10 @@ public class SimpleDeckService implements IDeckService<SuitCard> {
 		try {
 			IDeck<SuitCard> deck = this.getDeck(deckId);
 			if (deck == null) throw new IllegalArgumentException("No deck for this id");
-			
+
 			return deck.popCard();	
 		} catch (NoSuchElementException e) {
+			this.removeDeck(deckId);
 			log.debug("No more cards on deck " + deckId);
 			return null;
 		}
@@ -73,5 +73,9 @@ public class SimpleDeckService implements IDeckService<SuitCard> {
 			int changeB = random.nextInt(0, maxCardIndex);
 			deck.swapCards(changeA, changeB);
 		}
+	}
+
+	private void removeDeck(String deckKey) {
+		this.decksStared.remove(deckKey);
 	}
 }

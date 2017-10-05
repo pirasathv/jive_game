@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 import ca.com.jive.game.domain.enums.SuitCardType;
+import lombok.EqualsAndHashCode;
 
 /**
  * Provides a Deck with the regular 1 to 13 cards of the 4 suit
@@ -13,10 +14,11 @@ import ca.com.jive.game.domain.enums.SuitCardType;
  * 
  * @author Guilherme
  */
+@EqualsAndHashCode(of = "cards")
 public final class SimpleDeck implements IDeck<SuitCard> {
 
 	/** Total cards by suit */
-	private static final int TOTAL_CARDS_SUIT = 12;
+	private static final int TOTAL_CARDS_SUIT = 13;
 	/** List of cards in the deck */
 	private LinkedList<SuitCard> cards;
 
