@@ -18,6 +18,6 @@ That's it.
 Must have npm and angular-cli installed
 
 - npm install
-- ng serve
+- ng serve --open
 
 That's all! Just access http://localhost:4200/

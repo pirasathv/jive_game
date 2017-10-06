@@ -10,7 +10,7 @@ The back-end was building using:
 - Lombok: You must configure the Lombok on your IDE, otherwise the code won't compile. But it's very simples, check details here https://projectlombok.org/
 
 To start the backend, just execute the class ca.com.jive.game.config.spring.SpringStarter.java, SpringBoot will do the hard work ;)
-
+The system will run on http://localhost:8090/
 
 # Some details
 
