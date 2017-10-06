@@ -3,6 +3,7 @@ package ca.com.jive.game.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,15 +18,18 @@ import lombok.extern.slf4j.Slf4j;
  * @author Guilherme
  */
 @Slf4j
-@RestController("/deck")
+@RestController
+@RequestMapping("/deck")
+@CrossOrigin(origins = "http://localhost:4200")
 public class DeckController {
 
 	@Autowired
 	private SimpleDeckService deckService;
 
 	@RequestMapping("/new")
-	public String newDeck() {
-		return this.deckService.newDeck();
+	public ResponseEntity<String> newDeck() {
+		String deckId = this.deckService.newDeck();
+		return new ResponseEntity<String>(deckId, HttpStatus.OK);
 	}
 	
 	@RequestMapping("/shuffle/{id}")
