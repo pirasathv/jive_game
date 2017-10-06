@@ -8,9 +8,11 @@
   <button *ngIf="!deckStarted" (click)="startDeck()">Start Deck</button>
   <div *ngIf="deckStarted">
     <div>
-      <div class="card">
-        <div *ngIf="currentCard">
-          {{currentCard.number}} - {{currentCard.suit}}
+      <div class="card-board">
+        <div *ngIf="currentCard"
+             [class]="'card card-' + currentCard.suit"
+             [ngStyle]="{'background-position-x': ((currentCard.number - 1) * (-225)) + 'px'}"
+             [title]="currentCard.number + ' - ' + currentCard.suit">
         </div>
         <div *ngIf="!currentCard">
           No Card

@@ -1,0 +1,22 @@
+
+.card {
+  height: 315px;
+  width: 225px;
+  background-image: url(../assets/img/cards.jpg);
+}
+
+.card-CLUB {
+  background-position-y: -945px;
+}
+
+.card-HEART {
+  background-position-y: 0px;
+}
+
+.card-SPADE {
+  background-position-y: -315px;
+}
+
+.card-DIAMOND {
+  background-position-y: -630px;
+}

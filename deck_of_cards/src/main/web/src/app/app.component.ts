@@ -28,6 +28,7 @@ export class AppComponent {
   }
 
   getCard() {
+    this.currentCard = null;
     this.executing = true;
     this.deckService.dealOneCard().then(
       (card) => {
