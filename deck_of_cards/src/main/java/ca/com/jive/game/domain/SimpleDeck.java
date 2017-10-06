@@ -34,6 +34,10 @@ public final class SimpleDeck implements IDeck<SuitCard> {
 		return this.cards.pop();
 	}
 
+	/**
+	 * @return An unmodifiable collections of cards. You can't change
+	 * a cards of the deck
+	 */
 	public Collection<SuitCard> getCards() {
 		return Collections.unmodifiableCollection(this.cards);
 	}

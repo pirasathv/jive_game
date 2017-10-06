@@ -9,6 +9,8 @@ import lombok.val;
  * Represents a common suit card of a deck. Can be one of the
  * {@link SuitCardType} suit types. It has the number and the suit of the card.
  * 
+ * Has no setter's methods because the card details should not be allowed to change.
+ * 
  * @author Guilherme
  */
 @EqualsAndHashCode(of = { "number", "suit" })

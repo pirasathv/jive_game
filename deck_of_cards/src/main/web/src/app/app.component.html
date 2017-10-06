@@ -9,12 +9,12 @@
   <div *ngIf="deckStarted">
     <div>
       <div class="card-board">
-        <div *ngIf="currentCard"
+        <div *ngIf="currentCard && !executing"
              [class]="'card card-' + currentCard.suit"
              [ngStyle]="{'background-position-x': ((currentCard.number - 1) * (-225)) + 'px'}"
              [title]="currentCard.number + ' - ' + currentCard.suit">
         </div>
-        <div *ngIf="!currentCard">
+        <div *ngIf="!currentCard && !executing">
           No Card
         </div>
 
