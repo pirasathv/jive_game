@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to Jive Deck!
+  </h1>
+</div>
+<div>
+  <button *ngIf="!deckStarted" (click)="startDeck()">Start Deck</button>
+  <div *ngIf="deckStarted">
+    <div>
+      <div class="card">
+        <div *ngIf="currentCard">
+          {{currentCard.number}} - {{currentCard.suit}}
+        </div>
+        <div *ngIf="!currentCard">
+          No Card
+        </div>
+
+        <p *ngIf="executing">
+          Loading
+        </p>
+      </div>
+      <button *ngIf="hasCard" (click)="getCard()">Get Card</button>
+      <button *ngIf="hasCard" (click)="shuffle()"> Shuffle</button>
+      <button *ngIf="!hasCard" (click)="newDeck()"> New deck</button>
+    </div>
+  </div>
+</div>
