@@ -12,6 +12,7 @@ import ca.com.jive.game.domain.IDeck;
 import ca.com.jive.game.domain.SimpleDeck;
 import ca.com.jive.game.domain.SuitCard;
 import ca.com.jive.game.service.IDeckService;
+import ca.com.jive.game.service.exception.NoDeckFoundException;
 import lombok.val;
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,9 +38,9 @@ public class SimpleDeckService implements IDeckService<SuitCard> {
 		return deckId;
 	}
 
-	public void shuffle(String id) {
+	public void shuffle(String id) throws NoDeckFoundException {
 		SimpleDeck deck = this.getDeck(id);
-		if (deck == null) throw new IllegalArgumentException("No deck for this id");
+		if (deck == null) throw new NoDeckFoundException(id);
 		
 		this.shuffle(deck);
 	}
@@ -47,11 +48,12 @@ public class SimpleDeckService implements IDeckService<SuitCard> {
 	/**
 	 * @param deckId
 	 * @return the next card on the deck or null if has no more cards
+	 * @throws NoDeckFoundException 
 	 */
-	public SuitCard dealOneCard(String deckId) {
+	public SuitCard dealOneCard(String deckId) throws NoDeckFoundException {
 		try {
 			IDeck<SuitCard> deck = this.getDeck(deckId);
-			if (deck == null) throw new IllegalArgumentException("No deck for this id");
+			if (deck == null) throw new NoDeckFoundException(deckId);
 
 			return deck.popCard();	
 		} catch (NoSuchElementException e) {

@@ -9,7 +9,7 @@ import lombok.val;
 public class SimpleDeckServiceTest {
 
 	@Test
-	public void checkDealOneCard() {
+	public void checkDealOneCard() throws Exception {
 		val service = new SimpleDeckService();
 		val deckId = service.newDeck();
 
@@ -21,7 +21,7 @@ public class SimpleDeckServiceTest {
 	}
 	
 	@Test
-	public void checkSuffle() {
+	public void checkSuffle() throws Exception {
 		val service = new SimpleDeckService();
 		val deckId = service.newDeck();
 		
@@ -34,7 +34,7 @@ public class SimpleDeckServiceTest {
 	}
 	
 	@Test
-	public void checkPopUntilLastCard() {
+	public void checkPopUntilLastCard() throws Exception {
 		val service = new SimpleDeckService();
 		val deckId = service.newDeck();
 		
